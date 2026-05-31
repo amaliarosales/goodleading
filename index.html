@@ -3,45 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoodLeading | System</title>
+    <title>GoodLeading | Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        /* Gradiente metálico suave para las tarjetas */
-        .aqua-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f0fdfd 100%);
-        }
+        .aqua-card { background: linear-gradient(135deg, #ffffff 0%, #f0fdfd 100%); }
     </style>
 </head>
 <body class="bg-[#f8fcfc] min-h-screen text-slate-800">
 
     <div class="max-w-5xl mx-auto px-6 py-16">
+        <div class="flex justify-end mb-8 space-x-4">
+            <button onclick="setLanguage('es')" class="text-sm font-semibold text-[#0d9488] hover:underline">ES</button>
+            <span class="text-slate-300">|</span>
+            <button onclick="setLanguage('en')" class="text-sm font-semibold text-slate-400 hover:text-[#0d9488]">EN</button>
+        </div>
+
         <header class="mb-16">
             <h1 class="text-4xl font-bold tracking-tight text-[#0d9488]">GoodLeading</h1>
-            <p class="text-lg text-slate-500 mt-2">Sistemas operativos para el liderazgo moderno.</p>
+            <p id="subtitle" class="text-lg text-slate-500 mt-2">Sistemas operativos para el liderazgo moderno.</p>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
             <a href="TU_LINK_AQUI" class="group aqua-card p-8 rounded-2xl shadow-sm border border-teal-100 hover:border-[#2dd4bf] hover:shadow-lg transition-all duration-300">
                 <div class="w-12 h-12 bg-[#ccfbf1] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#0d9488] transition-colors">
                     <span class="text-2xl">⏳</span>
                 </div>
-                <h2 class="text-xl font-semibold mb-2 text-slate-900">Focus Session</h2>
-                <p class="text-slate-600 mb-4">Maximiza tu trabajo profundo con bloques de tiempo gestionados.</p>
-                <span class="text-[#0d9488] font-semibold group-hover:text-[#115e59] transition-colors">Abrir aplicación →</span>
+                <h2 id="app-title" class="text-xl font-semibold mb-2 text-slate-900">Focus Session</h2>
+                <p id="app-desc" class="text-slate-600 mb-4">Maximiza tu trabajo profundo con bloques de tiempo gestionados.</p>
+                <span id="app-link" class="text-[#0d9488] font-semibold group-hover:text-[#115e59]">Abrir aplicación →</span>
             </a>
-
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 opacity-60">
-                <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-6">
-                    <span class="text-2xl">⚡</span>
-                </div>
-                <h2 class="text-xl font-semibold mb-2 text-slate-400">Workflow Tasking</h2>
-                <p class="text-slate-500">Próximamente: Priorización ejecutiva.</p>
-            </div>
         </div>
     </div>
 
+    <script>
+        const translations = {
+            es: {
+                subtitle: "Sistemas operativos para el liderazgo moderno.",
+                appTitle: "Focus Session",
+                appDesc: "Maximiza tu trabajo profundo con bloques de tiempo gestionados.",
+                appLink: "Abrir aplicación →"
+            },
+            en: {
+                subtitle: "Operating systems for modern leadership.",
+                appTitle: "Focus Session",
+                appDesc: "Maximize deep work with managed time blocks.",
+                appLink: "Open application →"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.getElementById('subtitle').innerText = translations[lang].subtitle;
+            document.getElementById('app-title').innerText = translations[lang].appTitle;
+            document.getElementById('app-desc').innerText = translations[lang].appDesc;
+            document.getElementById('app-link').innerText = translations[lang].appLink;
+        }
+    </script>
 </body>
 </html>
